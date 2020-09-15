@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.108.250.186:3306/activiti_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone =GMT%2B8
+    username: activiti_u
+    password: activiti_PWD_123
+
+  activiti:
+    database-schema-update: drop-create
+    db-history-used: true   #开启历史信息
+
+
+
