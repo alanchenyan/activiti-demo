@@ -1,6 +1,5 @@
 package com.activiti.alanchen.controller;
 
-import com.activiti.alanchen.config.SecurityUtil;
 import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.model.ProcessInstance;
 import org.activiti.api.process.model.builders.ProcessPayloadBuilder;
@@ -30,8 +29,6 @@ public class ActivitiController {
     private ProcessRuntime processRuntime;
     @Resource
     private TaskRuntime taskRuntime;
-    @Resource
-    private SecurityUtil securityUtil;
 
     /**
      * 查询流程定义
@@ -62,7 +59,6 @@ public class ActivitiController {
      */
     @GetMapping("/getTask")
     public void getTask() {
-        securityUtil.logInAs("salaboy");        //指定组内任务人
         Page<Task> tasks = taskRuntime.tasks(Pageable.of(0, 10));
         if (tasks.getTotalItems() > 0) {
             for (Task task : tasks.getContent()) {
